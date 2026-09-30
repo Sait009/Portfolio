@@ -1,0 +1,12 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-canvas);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.4s var(--ease-out);
+}
+
+.root[data-ready] {
+  opacity: 1;
+}
