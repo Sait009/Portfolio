@@ -83,4 +83,25 @@ URL ที่ใช้ใน canonical, OG image และ sitemap มาจา�
 
 ถ้า deploy ที่อื่นที่ไม่ใช่ Vercel ให้ตั้ง `NEXT_PUBLIC_SITE_URL` เอง
 
-CI (`.github/workflows/ci.yml`) จะรัน lint, typecheck, format check และ build ทุกครั้งที่ push หรือเปิด PR
+CI (`.github/workflows/ci.yml`) จะรัน lint, typecheck, format check และ build ทุกครั้งที่ push ขึ้น `main` หรือ `dev` และทุก PR
+
+## Git workflow
+
+```
+feature/xxx ──PR (squash)──▶ dev ──PR (merge commit)──▶ main
+                              │                          │
+                        Staging (Preview)           Production
+```
+
+| Branch                          | ใช้ทำอะไร                                               | Deploy                                                         |
+| ------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------- |
+| `main`                          | Production ห้าม push ตรง ต้องผ่าน PR จาก `dev` เท่านั้น | https://portfolio-new-book.vercel.app                          |
+| `dev`                           | Staging ใช้รวมและทดสอบ feature ก่อนขึ้น production      | https://portfolio-git-dev-new-book.vercel.app (Vercel Preview) |
+| `feature/*`, `fix/*`, `chore/*` | ใช้ทำงานทีละเรื่อง แตก branch ออกจาก `dev`              | ได้ลิงก์ Preview จาก Vercel ในแต่ละ PR                         |
+
+**ขั้นตอน**
+
+1. แตก branch ใหม่จาก `dev` เช่น `git checkout -b feature/contact-form origin/dev`
+2. เปิด PR เข้า `dev` รอ CI ผ่าน แล้ว merge แบบ **squash**
+3. ทดสอบบน staging URL ของ `dev`
+4. พอทดสอบผ่านแล้ว เปิด PR จาก `dev` เข้า `main` แล้ว merge แบบ **merge commit** (ไม่ใช้ squash เพื่อให้ประวัติของ `dev` กับ `main` ไม่แยกกัน) จากนั้น Vercel จะ deploy ขึ้น production เอง
