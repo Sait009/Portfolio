@@ -1,0 +1,79 @@
+.card {
+  --mx: 50%;
+  --my: 0%;
+  --rx: 0deg;
+  --ry: 0deg;
+
+  position: relative;
+  isolation: isolate;
+  border: var(--border);
+  border-radius: var(--radius-l);
+  background-color: var(--surface);
+  backdrop-filter: var(--blur-surface);
+  -webkit-backdrop-filter: var(--blur-surface);
+  transition:
+    border-color var(--duration),
+    transform var(--duration-slow) var(--ease-out),
+    background-color var(--duration);
+}
+
+/* spotlight ภายในการ์ด */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    28rem circle at var(--mx) var(--my),
+    var(--primary-trans-10),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity var(--duration);
+}
+
+/* ขอบเรืองแสงตามเมาส์ (mask เฉพาะเส้นขอบ) */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    18rem circle at var(--mx) var(--my),
+    var(--primary),
+    var(--secondary) 40%,
+    transparent 70%
+  );
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration);
+}
+
+.card:hover {
+  background-color: var(--surface-hover);
+}
+
+.card:hover::before,
+.card:hover::after,
+.card:focus-within::after {
+  opacity: 1;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card[data-tilt] {
+    transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  }
+
+  .card[data-tilt]:hover {
+    transition:
+      border-color var(--duration),
+      transform var(--duration-fast) linear,
+      background-color var(--duration);
+  }
+}

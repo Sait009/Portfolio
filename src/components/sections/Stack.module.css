@@ -1,0 +1,109 @@
+.groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--space-m);
+}
+
+.group {
+  display: grid;
+  align-content: start;
+  gap: var(--space-m);
+  padding: var(--space-l);
+  border: var(--border);
+  border-radius: var(--radius-l);
+  background-color: var(--surface);
+  backdrop-filter: var(--blur-surface);
+  -webkit-backdrop-filter: var(--blur-surface);
+}
+
+.groupTitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-s);
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--text-light);
+}
+
+.groupTitle span {
+  color: var(--primary);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.chip {
+  padding: 0.4em 0.85em;
+  border: 1px solid var(--border-color-strong);
+  border-radius: var(--radius-s);
+  background-color: rgb(255 255 255 / 0.02);
+  font-size: var(--text-s);
+  transition:
+    border-color var(--duration-fast),
+    color var(--duration-fast),
+    background-color var(--duration-fast);
+}
+
+.chip:hover {
+  border-color: var(--primary-trans-40);
+  background-color: var(--primary-trans-10);
+  color: var(--primary);
+}
+
+/* ---- Marquee ---- */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  margin-top: var(--space-xxl);
+  padding-block: var(--space-m);
+  border-block: var(--border);
+  background-color: rgb(5 7 13 / 0.5);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  user-select: none;
+}
+
+.track {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-xl);
+  padding-right: var(--space-xl);
+  list-style: none;
+  padding-left: 0;
+  font-family: var(--font-heading);
+  font-size: var(--h3);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-light-subtle);
+  animation: marquee 40s linear infinite;
+}
+
+.track li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  white-space: nowrap;
+}
+
+.track li::after {
+  content: '✦';
+  font-size: 0.6em;
+  color: var(--primary);
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

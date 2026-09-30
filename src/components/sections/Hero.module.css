@@ -1,0 +1,210 @@
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  padding-block: calc(var(--header-height) + var(--space-xl)) var(--space-xxl);
+}
+
+.inner {
+  display: grid;
+  align-items: center;
+}
+
+.content {
+  display: grid;
+  gap: var(--space-m);
+  max-width: 44rem;
+}
+
+/* ---- Intro animation (stagger ผ่าน --i) ---- */
+.content > * {
+  animation: rise var(--duration-slow) var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 90ms + 150ms);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  justify-self: start;
+  padding: 0.4em 0.9em;
+  border: 1px solid var(--accent-trans-20);
+  border-radius: var(--radius-full);
+  background-color: rgb(52 211 153 / 0.06);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.pulse {
+  position: relative;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+.pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--accent);
+  animation: ping 1.8s var(--ease-out) infinite;
+}
+
+@keyframes ping {
+  to {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+.greeting {
+  font-family: var(--font-mono);
+  font-size: var(--text-s);
+  color: var(--text-light-muted);
+}
+
+.greeting span {
+  color: var(--primary);
+}
+
+.title {
+  font-size: var(--h1);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.role {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  min-height: 1.6em;
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  color: var(--text-light);
+}
+
+.prompt {
+  color: var(--primary);
+}
+
+.scramble [data-glyph] {
+  color: var(--primary);
+  opacity: 0.7;
+}
+
+.caret {
+  width: 0.55em;
+  height: 1.1em;
+  background-color: var(--primary);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.tagline {
+  max-width: 36rem;
+  color: var(--text-light-muted);
+  font-size: var(--text-l);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-top: var(--space-2xs);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-m);
+  margin-top: var(--space-s);
+  padding-top: var(--space-m);
+  border-top: var(--border);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-light-subtle);
+}
+
+.meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.scrollCue {
+  position: absolute;
+  bottom: var(--space-l);
+  left: 50%;
+  translate: -50% 0;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light-subtle);
+  transition: color var(--duration-fast);
+}
+
+.scrollCue:hover {
+  color: var(--primary);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scrollCue svg {
+    animation: nudge 2s var(--ease-out) infinite;
+  }
+}
+
+@keyframes nudge {
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* มือถือ: ดันเนื้อหาลงล่าง ให้วัตถุ 3D อยู่ด้านบน */
+@media (max-width: 767px) {
+  .inner {
+    align-items: end;
+  }
+
+  .hero {
+    padding-top: 42svh;
+  }
+
+  .scrollCue {
+    display: none;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 767px) {
+  .hero {
+    padding-top: calc(var(--header-height) + var(--space-xl));
+  }
+}
+
+/* ต้องอยู่ท้ายไฟล์เพื่อ override animation ด้านบน */
+@media (prefers-reduced-motion: reduce) {
+  .content > *,
+  .pulse::after,
+  .caret {
+    animation: none;
+  }
+}

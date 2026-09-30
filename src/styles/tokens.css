@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Design tokens — ตั้งชื่อตามแนว Automatic CSS (ACSS) เพื่อให้คุ้นมือ
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Brand colors ---- */
+  --primary: #22d3ee;
+  --primary-hover: #67e8f9;
+  --primary-trans-10: rgb(34 211 238 / 0.1);
+  --primary-trans-20: rgb(34 211 238 / 0.2);
+  --primary-trans-40: rgb(34 211 238 / 0.4);
+
+  --secondary: #8b5cf6;
+  --secondary-hover: #a78bfa;
+  --secondary-trans-10: rgb(139 92 246 / 0.1);
+  --secondary-trans-20: rgb(139 92 246 / 0.2);
+
+  --accent: #34d399;
+  --accent-trans-20: rgb(52 211 153 / 0.2);
+
+  --tertiary: #f472b6;
+  --tertiary-trans-20: rgb(244 114 182 / 0.2);
+
+  /* ---- Base / surfaces ---- */
+  --base: #05070d;
+  --base-light: #0a0e1a;
+  --base-ultra-light: #111728;
+  --surface: rgb(13 18 32 / 0.6);
+  --surface-hover: rgb(20 27 46 / 0.75);
+
+  /* ---- Text ---- */
+  --text-light: #e6edf7;
+  --text-light-muted: #94a3b8;
+  --text-light-subtle: #64748b;
+
+  /* ---- Borders ---- */
+  --border-color: rgb(148 163 184 / 0.12);
+  --border-color-strong: rgb(148 163 184 / 0.24);
+  --border: 1px solid var(--border-color);
+
+  /* ---- Gradients ---- */
+  --gradient-brand: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+  --gradient-text: linear-gradient(100deg, #f8fafc 10%, var(--primary) 55%, var(--secondary) 95%);
+
+  /* ---- Typography ---- */
+  --font-heading: var(--font-space-grotesk), var(--font-noto-thai), system-ui, sans-serif;
+  --font-body: var(--font-space-grotesk), var(--font-noto-thai), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, 'SFMono-Regular', monospace;
+
+  /* fluid type scale: 360px → 1440px */
+  --text-xs: clamp(0.75rem, 0.73rem + 0.09vw, 0.8125rem);
+  --text-s: clamp(0.875rem, 0.85rem + 0.11vw, 0.9375rem);
+  --text-m: clamp(1rem, 0.96rem + 0.19vw, 1.125rem);
+  --text-l: clamp(1.125rem, 1.06rem + 0.28vw, 1.3125rem);
+  --text-xl: clamp(1.25rem, 1.13rem + 0.56vw, 1.625rem);
+
+  --h1: clamp(2.75rem, 1.9rem + 4.4vw, 6rem);
+  --h2: clamp(2rem, 1.55rem + 2.2vw, 3.5rem);
+  --h3: clamp(1.25rem, 1.14rem + 0.56vw, 1.625rem);
+  --h4: clamp(1.125rem, 1.09rem + 0.19vw, 1.25rem);
+
+  --heading-line-height: 1.05;
+  --text-line-height: 1.65;
+
+  /* ---- Spacing (fluid) ---- */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: clamp(0.625rem, 0.6rem + 0.11vw, 0.75rem);
+  --space-s: clamp(0.875rem, 0.82rem + 0.23vw, 1rem);
+  --space-m: clamp(1.25rem, 1.16rem + 0.37vw, 1.5rem);
+  --space-l: clamp(1.75rem, 1.57rem + 0.74vw, 2.25rem);
+  --space-xl: clamp(2.5rem, 2.22rem + 1.3vw, 3.5rem);
+  --space-xxl: clamp(3.5rem, 2.9rem + 2.6vw, 5.5rem);
+
+  --section-space-m: clamp(5rem, 3.9rem + 5.5vw, 9rem);
+
+  /* ---- Layout ---- */
+  --content-width: 1240px;
+  --gutter: clamp(1rem, 0.6rem + 1.9vw, 2rem);
+  --header-height: 4.5rem;
+
+  /* ---- Radius ---- */
+  --radius-s: 0.5rem;
+  --radius: 0.875rem;
+  --radius-l: 1.25rem;
+  --radius-full: 999px;
+
+  /* ---- Effects ---- */
+  --shadow-glow: 0 0 0 1px var(--primary-trans-20), 0 8px 40px -8px var(--primary-trans-40);
+  --blur-surface: blur(14px) saturate(140%);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 160ms;
+  --duration: 320ms;
+  --duration-slow: 700ms;
+
+  /* ---- z-index ---- */
+  --z-canvas: 0;
+  --z-content: 1;
+  --z-header: 50;
+  --z-skip: 100;
+}

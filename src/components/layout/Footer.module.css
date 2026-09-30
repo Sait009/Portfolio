@@ -1,0 +1,35 @@
+.footer {
+  position: relative;
+  z-index: var(--z-content);
+  padding-block: var(--space-l);
+  border-top: var(--border);
+  background-color: rgb(5 7 13 / 0.7);
+  backdrop-filter: var(--blur-surface);
+  -webkit-backdrop-filter: var(--blur-surface);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-light-subtle);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.built span {
+  color: var(--text-light-muted);
+}
+
+.top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  transition: color var(--duration-fast);
+}
+
+.top:hover {
+  color: var(--primary);
+}
