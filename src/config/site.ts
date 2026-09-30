@@ -3,7 +3,7 @@
  * (ชื่อ, ตำแหน่ง, อีเมล, social, URL ที่ใช้ทำ SEO/OG)
  */
 export const siteConfig = {
-  name: 'Your Name',
+  name: 'Chanatip Pirom',
   handle: 'sait009',
   role: 'WordPress & Creative Web Developer',
   /** ข้อความที่วนแสดงใน Hero (scramble effect) */
@@ -18,7 +18,7 @@ export const siteConfig = {
   description:
     'Portfolio of a WordPress & creative web developer specialising in Etch, Automatic CSS, modern JavaScript/TypeScript and interactive 3D on the web.',
   location: 'Thailand',
-  email: 'hello@example.com',
+  email: 'chanatip.pirom@gmail.com',
   availableForWork: true,
   /** ตั้งค่าผ่าน env ตอน deploy เช่น NEXT_PUBLIC_SITE_URL=https://yourdomain.com */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
