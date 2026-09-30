@@ -71,11 +71,16 @@ Header, Footer และฉาก 3D จะติดมาให้เองจ�
 
 ## Deploy
 
-แนะนำ **Vercel** เพราะรองรับ Next.js แบบ zero-config (Netlify และ Cloudflare Pages ก็ใช้ได้)
-ให้ตั้ง environment variable นี้ก่อน deploy เพื่อให้ canonical URL, OG image และ sitemap ถูกต้อง:
+Production: https://portfolio-new-book.vercel.app
 
-```
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
-```
+ใช้ **Vercel** ที่ต่อกับ repo นี้ไว้ ทุกครั้งที่ push ขึ้น `main` จะ deploy ให้อัตโนมัติ
+
+URL ที่ใช้ใน canonical, OG image และ sitemap มาจาก `siteConfig.url` เลือกตามลำดับนี้:
+
+1. `NEXT_PUBLIC_SITE_URL` ถ้าตั้งไว้ (ใช้เมื่อต้องการบังคับเป็นโดเมนใดโดเมนหนึ่ง)
+2. `VERCEL_PROJECT_PRODUCTION_URL` ที่ Vercel ส่งมาให้เอง (เลือก custom domain ก่อน ถ้าไม่มีจึงใช้ `*.vercel.app`)
+3. `http://localhost:3000` ตอน dev
+
+ถ้า deploy ที่อื่นที่ไม่ใช่ Vercel ให้ตั้ง `NEXT_PUBLIC_SITE_URL` เอง
 
 CI (`.github/workflows/ci.yml`) จะรัน lint, typecheck, format check และ build ทุกครั้งที่ push หรือเปิด PR

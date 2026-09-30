@@ -4,7 +4,7 @@
  */
 export const siteConfig = {
   name: 'Chanatip Pirom',
-  handle: 'sait009',
+  handle: 'Chanatip',
   role: 'WordPress & Creative Web Developer',
   /** ข้อความที่วนแสดงใน Hero (scramble effect) */
   roles: [
@@ -20,8 +20,15 @@ export const siteConfig = {
   location: 'Thailand',
   email: 'chanatip.pirom@gmail.com',
   availableForWork: true,
-  /** ตั้งค่าผ่าน env ตอน deploy เช่น NEXT_PUBLIC_SITE_URL=https://yourdomain.com */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+  /**
+   * URL หลักของเว็บ (canonical, OG image, sitemap)
+   * ลำดับ: NEXT_PUBLIC_SITE_URL → production URL ที่ Vercel ให้อัตโนมัติ → localhost
+   */
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : 'http://localhost:3000'),
   socials: [
     { label: 'GitHub', href: 'https://github.com/sait009' },
     // { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-profile' },
