@@ -47,62 +47,69 @@ export default function Projects() {
               Projects I&apos;m <span className="gradient-text">proud of.</span>
             </>
           }
-          lead="A selection of client and personal work — from WordPress builds to custom, interactive experiences."
+          lead="Recent work, from real-time healthcare dashboards to mobile apps."
         />
 
         <ul role="list" className={styles.grid}>
-          {projects.map((project, index) => (
-            <li key={project.slug} data-reveal>
-              <SpotlightCard
-                tilt
-                className={styles.card}
-                style={{ '--card-accent': `var(--${project.accent})` } as CSSProperties}
-              >
-                <div className={styles.cover}>
-                  <ProjectCover project={project} index={index} />
-                </div>
+          {projects.map((project, index) => {
+            // ลิงก์หลักของการ์ด: เว็บจริงก่อน ถ้าไม่มีใช้ repo
+            const primaryHref = project.href ?? project.repo;
+            return (
+              <li key={project.slug} data-reveal>
+                <SpotlightCard
+                  tilt
+                  className={styles.card}
+                  style={{ '--card-accent': `var(--${project.accent})` } as CSSProperties}
+                >
+                  <div className={styles.cover}>
+                    <ProjectCover project={project} index={index} />
+                  </div>
 
-                <div className={styles.body}>
-                  <p className={styles.meta}>
-                    <span>{project.category}</span>
-                    <span aria-hidden="true">/</span>
-                    <span>{project.year}</span>
-                  </p>
-                  <h3 className={styles.title}>
-                    {project.href ? (
+                  <div className={styles.body}>
+                    <p className={styles.meta}>
+                      <span>{project.category}</span>
+                      <span aria-hidden="true">/</span>
+                      <span>{project.year}</span>
+                    </p>
+                    <h3 className={styles.title}>
+                      {primaryHref ? (
+                        <a
+                          href={primaryHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.stretched}
+                        >
+                          {project.title}
+                          <ArrowUpRight size={20} aria-hidden />
+                          <span className="sr-only">
+                            {` (${project.href ? 'live site' : 'source code on GitHub'}, opens in a new tab)`}
+                          </span>
+                        </a>
+                      ) : (
+                        project.title
+                      )}
+                    </h3>
+                    <p className={styles.summary}>{project.summary}</p>
+                    <ul role="list" className={styles.tags} aria-label="Technologies">
+                      {project.tags.map((tag) => (
+                        <li key={tag}>{tag}</li>
+                      ))}
+                    </ul>
+                    {project.href && project.repo && (
                       <a
-                        href={project.href}
+                        href={project.repo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={styles.stretched}
+                        className={styles.repo}
                       >
-                        {project.title}
-                        <ArrowUpRight size={20} aria-hidden />
+                        Source code
                       </a>
-                    ) : (
-                      project.title
                     )}
-                  </h3>
-                  <p className={styles.summary}>{project.summary}</p>
-                  <ul role="list" className={styles.tags} aria-label="Technologies">
-                    {project.tags.map((tag) => (
-                      <li key={tag}>{tag}</li>
-                    ))}
-                  </ul>
-                  {project.repo && (
-                    <a
-                      href={project.repo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.repo}
-                    >
-                      Source code
-                    </a>
-                  )}
-                </div>
-              </SpotlightCard>
-            </li>
-          ))}
+                  </div>
+                </SpotlightCard>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

@@ -24,12 +24,12 @@ npm run dev        # http://localhost:3000
 
 เนื้อหาทั้งหมดแยกไว้เป็น data แล้ว **ไม่ต้องแก้ใน component**
 
-| ไฟล์                    | เนื้อหา                                                              |
-| ----------------------- | -------------------------------------------------------------------- |
-| `src/config/site.ts`    | ชื่อ, ตำแหน่ง, คำโปรย, อีเมล, social, สถิติ, เมนู                    |
-| `src/data/projects.ts`  | ผลงาน (ตอนนี้เป็น **ตัวอย่าง** ต้องแทนด้วยผลงานจริง) ใส่ `image` ได้ |
-| `src/data/skills.ts`    | Services, กลุ่ม skill, แถบ marquee                                   |
-| `src/styles/tokens.css` | สี, ฟอนต์, spacing, radius (ตั้งชื่อตามแนว ACSS)                     |
+| ไฟล์                    | เนื้อหา                                           |
+| ----------------------- | ------------------------------------------------- |
+| `src/config/site.ts`    | ชื่อ, ตำแหน่ง, คำโปรย, อีเมล, social, เมนู        |
+| `src/data/projects.ts`  | ผลงาน (งานแรกจะแสดงเป็นการ์ดใหญ่) ใส่ `image` ได้ |
+| `src/data/skills.ts`    | Services, กลุ่ม skill, แถบ marquee                |
+| `src/styles/tokens.css` | สี, ฟอนต์, spacing, radius (ตั้งชื่อตามแนว ACSS)  |
 
 การใส่รูปผลงาน ให้วางไฟล์ไว้ใน `src/assets/` แล้ว import มาใส่ใน `projects.ts`:
 
