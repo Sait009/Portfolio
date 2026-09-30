@@ -40,15 +40,6 @@ export default function About() {
               TypeScript and modern frameworks — and for the fun stuff, Three.js and shaders to
               bring a brand to life in 3D.
             </p>
-
-            <dl className={styles.stats}>
-              {siteConfig.stats.map((stat) => (
-                <div key={stat.label} className={styles.stat}>
-                  <dt>{stat.label}</dt>
-                  <dd className="gradient-text">{stat.value}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
 
           <div data-reveal>

@@ -34,11 +34,6 @@ export const siteConfig = {
     // { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-profile' },
     // { label: 'Facebook', href: 'https://www.facebook.com/your-profile' },
   ],
-  stats: [
-    { value: '5+', label: 'Years experience' },
-    { value: '40+', label: 'Projects shipped' },
-    { value: '100', label: 'Lighthouse target' },
-  ],
 } as const;
 
 export const navItems = [

@@ -8,6 +8,34 @@
   display: grid;
 }
 
+/* งานแรก = featured: เต็มความกว้าง, cover อยู่ซ้าย เนื้อหาอยู่ขวา */
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid > li:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .grid > li:first-child .card {
+    grid-template-columns: 1.15fr 1fr;
+    grid-template-rows: none;
+  }
+
+  .grid > li:first-child .cover {
+    aspect-ratio: auto;
+    min-height: 20rem;
+    border-bottom: 0;
+    border-right: var(--border);
+  }
+
+  .grid > li:first-child .body {
+    align-content: center;
+    padding: var(--space-xl);
+  }
+}
+
 .card {
   --card-accent: var(--primary);
 
@@ -123,10 +151,14 @@
 }
 
 .stretched {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35em;
   transition: color var(--duration-fast);
+}
+
+/* ลูกศรต่อท้ายคำสุดท้าย แม้หัวข้อจะขึ้นบรรทัดใหม่ */
+.stretched svg {
+  display: inline-block;
+  margin-left: 0.3em;
+  vertical-align: -0.1em;
 }
 
 /* ทั้งการ์ดคลิกได้ผ่านลิงก์หัวข้อ */

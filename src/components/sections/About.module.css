@@ -16,35 +16,3 @@
   color: var(--text-light);
   font-weight: 600;
 }
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-s);
-  margin-top: var(--space-s);
-  padding-top: var(--space-l);
-  border-top: var(--border);
-}
-
-.stat {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: var(--space-3xs);
-}
-
-.stat dt {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--text-light-subtle);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.stat dd {
-  font-family: var(--font-heading);
-  font-size: var(--h2);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  justify-self: start;
-}

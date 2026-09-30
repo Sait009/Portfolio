@@ -18,48 +18,39 @@ export type Project = {
   image?: StaticImageData;
 };
 
-/**
- * ⚠️ ตัวอย่างผลงาน (placeholder) — แทนที่ด้วยผลงานจริงของคุณ
- */
+/** งานแรกในรายการจะแสดงเป็นการ์ดใหญ่ (featured) บนจอกว้าง */
 export const projects: Project[] = [
   {
-    slug: 'corporate-site-etch',
-    title: 'Corporate Website Rebuild',
+    slug: 'real-time-patient-management',
+    title: 'Real-Time Patient Management System',
     summary:
-      'Rebuilt a multi-language corporate site with Etch and ACSS — a reusable component system, fluid typography and a 95+ Lighthouse score.',
-    category: 'WordPress',
+      'Patient registration form with a live staff dashboard. Updates sync instantly over the BroadcastChannel API with no polling, covering the full session lifecycle: lazy status activation, debounced syncing, inactivity detection and cleanup. Built as a front-end assignment for Agnos Health.',
+    category: 'Healthcare',
     year: '2026',
-    tags: ['WordPress', 'Etch', 'ACSS', 'BEM'],
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'BroadcastChannel API'],
     accent: 'primary',
+    repo: 'https://github.com/Sait009/Real-Time-Patient-Management-System',
   },
   {
-    slug: 'product-3d-landing',
-    title: '3D Product Landing Page',
+    slug: 'wu-comfort-detector',
+    title: 'WU Comfort Detector',
     summary:
-      'Interactive product showcase powered by Three.js with scroll-driven camera moves, custom shaders and a graceful non-WebGL fallback.',
-    category: 'Creative Dev',
-    year: '2026',
-    tags: ['Three.js', 'GLSL', 'TypeScript'],
-    accent: 'secondary',
-  },
-  {
-    slug: 'woocommerce-store',
-    title: 'WooCommerce Store',
-    summary:
-      'Custom WooCommerce theme with a streamlined checkout, dynamic product filters and Core Web Vitals tuned for mobile shoppers.',
-    category: 'E-commerce',
+      'Patient monitoring dashboard built at Walailak University (Innovation of Medical Informatics). Shows live vital-sign charts, comfort-level predictions and patient records, synced in real time from Firebase.',
+    category: 'Medical Informatics',
     year: '2025',
-    tags: ['WooCommerce', 'PHP', 'JavaScript'],
+    tags: ['Next.js', 'Firebase', 'Chart.js', 'TanStack Table'],
     accent: 'accent',
+    repo: 'https://github.com/Sait009/I-New-Gen',
   },
   {
-    slug: 'analytics-dashboard',
-    title: 'Analytics Dashboard',
+    slug: 'workpoint-tv-clone',
+    title: 'Workpoint TV App (UI Clone)',
     summary:
-      'Custom-built dashboard in Next.js and TypeScript consuming the WordPress REST API, with real-time charts and role-based access.',
-    category: 'Custom Dev',
-    year: '2025',
-    tags: ['Next.js', 'TypeScript', 'REST API'],
-    accent: 'tertiary',
+      'Mobile app UI clone built for practice, with a featured carousel, live banner, news, replay, schedule and Top 10 screens using bottom-tab and stack navigation. Not affiliated with Workpoint.',
+    category: 'Mobile App',
+    year: '2026',
+    tags: ['React Native', 'TypeScript', 'React Navigation'],
+    accent: 'secondary',
+    repo: 'https://github.com/Sait009/WorkPointTV',
   },
 ];
