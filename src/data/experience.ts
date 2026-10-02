@@ -1,7 +1,11 @@
 export type TimelineEntry = {
   title: string;
   org: string;
+  /** เว็บไซต์ขององค์กร (ถ้ามี) */
+  orgUrl?: string;
   period: string;
+  /** งานปัจจุบัน — แสดงป้าย "Present" */
+  current?: boolean;
   /** ใช้กับ <time dateTime> — รูปแบบ YYYY-MM */
   start?: string;
   end?: string;
@@ -13,6 +17,20 @@ export type TimelineEntry = {
 
 /** ข้อมูลจาก Resume — เรียงจากใหม่ไปเก่า */
 export const experience: TimelineEntry[] = [
+  {
+    title: 'Web Developer',
+    org: 'Care Digital',
+    orgUrl: 'https://caredigital.co.th/',
+    period: 'Jul 2026 –',
+    start: '2026-07',
+    current: true,
+    highlights: [
+      'Help gather and clarify project requirements',
+      'Write project specifications',
+      'Develop websites with WordPress, Next.js and Astro + Payload CMS',
+    ],
+    tags: ['WordPress', 'Next.js', 'Astro', 'Payload CMS'],
+  },
   {
     title: 'Trainee Developer',
     org: 'Greenline Synergy Co., Ltd.',

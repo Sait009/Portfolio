@@ -11,7 +11,7 @@
 }
 
 @media (min-width: 960px) {
-  .inner {
+  .inner[data-has-form] {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xxl);
   }
@@ -94,4 +94,17 @@
 
 .socials a:hover {
   color: var(--primary);
+}
+
+/* ไม่มีฟอร์ม (ยังไม่ตั้ง RESEND_API_KEY) → จัดกึ่งกลางแบบคอลัมน์เดียว */
+.inner:not([data-has-form]) .intro {
+  justify-items: center;
+  max-width: 52rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.inner:not([data-has-form]) .actions,
+.inner:not([data-has-form]) .socials {
+  justify-content: center;
 }

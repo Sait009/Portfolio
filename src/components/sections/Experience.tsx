@@ -1,3 +1,5 @@
+import { ArrowUpRight } from 'lucide-react';
+
 import { awards, education, experience, type TimelineEntry } from '@/data/experience';
 import SectionHeading from '@/components/ui/SectionHeading';
 import styles from './Experience.module.css';
@@ -21,11 +23,26 @@ function Timeline({ title, items }: { title: string; items: TimelineEntry[] }) {
       <h3 className={styles.groupTitle}>{title}</h3>
       <ol role="list" className={styles.timeline}>
         {items.map((entry) => (
-          <li key={`${entry.title}-${entry.period}`} className={styles.item}>
-            <Period entry={entry} />
+          <li
+            key={`${entry.title}-${entry.period}`}
+            className={styles.item}
+            data-current={entry.current || undefined}
+          >
+            <p className={styles.when}>
+              <Period entry={entry} />
+              {entry.current && <span className={styles.badge}>Present</span>}
+            </p>
             <h4 className={styles.title}>{entry.title}</h4>
             <p className={styles.org}>
-              {entry.org}
+              {entry.orgUrl ? (
+                <a href={entry.orgUrl} target="_blank" rel="noopener noreferrer">
+                  {entry.org}
+                  <ArrowUpRight size={14} aria-hidden />
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              ) : (
+                entry.org
+              )}
               {entry.meta && <span className={styles.meta}> · {entry.meta}</span>}
             </p>
             {entry.description && <p className={styles.description}>{entry.description}</p>}
