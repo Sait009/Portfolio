@@ -30,9 +30,8 @@ export const siteConfig = {
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : 'http://localhost:3000'),
   socials: [
-    { label: 'GitHub', href: 'https://github.com/sait009' },
-    // { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-profile' },
-    // { label: 'Facebook', href: 'https://www.facebook.com/your-profile' },
+    { label: 'GitHub', href: 'https://github.com/Sait009' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/chanatip-pirom' },
   ],
 } as const;
 
@@ -41,6 +40,7 @@ export const navItems = [
   { id: 'services', label: 'Services' },
   { id: 'stack', label: 'Stack' },
   { id: 'work', label: 'Work' },
+  { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ] as const;
 
