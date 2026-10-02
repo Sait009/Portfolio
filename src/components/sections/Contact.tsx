@@ -7,6 +7,9 @@ import CopyEmailButton from '@/components/ui/CopyEmailButton';
 import styles from './Contact.module.css';
 
 export default function Contact() {
+  // แสดงฟอร์มเฉพาะเมื่อตั้งค่า Resend แล้ว (อ่านตอน build — เพิ่ม key แล้วต้อง redeploy)
+  const formEnabled = Boolean(process.env.RESEND_API_KEY);
+
   return (
     <section
       id="contact"
@@ -14,7 +17,7 @@ export default function Contact() {
       data-scene="center"
       aria-labelledby="contact-title"
     >
-      <div className={`container ${styles.inner}`}>
+      <div className={`container ${styles.inner}`} data-has-form={formEnabled || undefined}>
         <div className={styles.intro} data-reveal>
           <p className={styles.eyebrow}>
             <span>06</span> — Contact
@@ -49,9 +52,11 @@ export default function Contact() {
           )}
         </div>
 
-        <div data-reveal>
-          <ContactForm />
-        </div>
+        {formEnabled && (
+          <div data-reveal>
+            <ContactForm />
+          </div>
+        )}
       </div>
     </section>
   );
