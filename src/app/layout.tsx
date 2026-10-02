@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from 'next';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { JetBrains_Mono, Noto_Sans_Thai, Space_Grotesk } from 'next/font/google';
 
 import { siteConfig } from '@/config/site';
@@ -75,6 +77,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <Header />
         {children}
         <Footer />
+        {/* Vercel Web Analytics + Speed Insights (ต้องเปิดใน Vercel dashboard ด้วย) */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

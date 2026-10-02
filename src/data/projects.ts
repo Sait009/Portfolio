@@ -29,6 +29,7 @@ export const projects: Project[] = [
     year: '2026',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'BroadcastChannel API'],
     accent: 'primary',
+    href: 'https://agnos-patient-system-mu.vercel.app',
     repo: 'https://github.com/Sait009/Real-Time-Patient-Management-System',
   },
   {
